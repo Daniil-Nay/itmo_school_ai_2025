@@ -1,5 +1,11 @@
-fastapi
+fastapi==0.104.1
 aiologger[aiofiles]
 pip-chill
-uvicorn
+uvicorn==0.24.0
 gunicorn
+requests==2.31.0
+python-dotenv==1.0.0
+feedparser==6.0.10
+beautifulsoup4==4.12.2
+lxml==4.9.3
+urllib3==2.0.7

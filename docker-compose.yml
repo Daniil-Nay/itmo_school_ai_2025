@@ -1,22 +1,14 @@
-version: "3.8"
+version: '3'
 
 services:
-  fastapi-service:
+  app:
     build: .
-    container_name: fastapi-baseline
     ports:
       - "8080:8080"
-    restart: unless-stopped
-    environment:
-      - TZ=UTC
     volumes:
-      - ./logs:/app/logs
-    # Если нужно GPU
-    # runtime: nvidia
-    # deploy:
-    #   resources:
-    #     reservations:
-    #       devices:
-    #         - driver: nvidia
-    #           count: all
-    #           capabilities: [gpu]
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1  # Для вывода логов в реальном времени
+    env_file:
+      - .env
+    command: ["./start.sh"]
